@@ -99,7 +99,7 @@
     align-items: center;
     margin: 0.2rem 0;
     position: relative;
-    width: 80vw;
+    width: 82vw;
     transition: all 0.3s;
     padding: 0.2rem;
     border-radius: 0.5rem;
@@ -110,7 +110,7 @@
     background-color: rgba(211, 211, 211, 0.2);
 }
 
-.home__section .home__tasks-wrapper input {
+.home__section .home__tasks-wrapper input[type="checkbox"] {
     cursor: pointer;
     width: 24px;
     height: 24px;
@@ -154,4 +154,23 @@
 .home__tasks-line-through {
     text-decoration: line-through;
     opacity: 0.35;
+}
+
+.home__section .home__newtask input {
+    margin-left: 2.5rem;
+    width: 90%;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.home__todolist .home__newtask-emptylist input {
+    margin: 0 8rem;
+    width: 80%;
+    margin-top: 4rem;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
 }

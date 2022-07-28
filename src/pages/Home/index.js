@@ -24,7 +24,27 @@ const Home = () => {
             description: 'Make a Youtube Channel',
             done: false,
         },   
+        {
+            id: '29293',
+            description: 'Mais uma task',
+            done: false,
+        },   
     ]);
+
+    const [newItem, setNewItem] = useState(false);
+
+    function handleKeyUp(e) {
+        if (e.key === 'Enter') {
+            const newArrayItems = [...tasks];
+            newArrayItems.push({
+                id: `${e.target.value}/${tasks.length}`,
+                description: e.target.value,
+                done: false
+            });
+            setTasks(newArrayItems);
+            setNewItem(false);
+        }
+    }
 
     return (
         <section className="home__section">
@@ -41,11 +61,16 @@ const Home = () => {
                 </div>
                 <div className="home__content">
                     <div className="home__todolist">
+                        {newItem && tasks.length === 0 && (
+                            <div className="home__newtask-emptylist">
+                                <input type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
+                            </div>
+                        )}
                         {tasks.length > 0 ?
                         (
                             <div className="home__tasks-wrapper">
                                 {tasks.map((task, index) => (
-                                    <div key={task.id}>
+                                    <div key={`${task.description}/${index}`}>
                                         {task.done ?
                                             <Fragment>
                                                 <input type="checkbox" checked={task.done} onChange={() => {
@@ -74,18 +99,26 @@ const Home = () => {
                                         />
                                     </div>
                                 ))}
-                                <button className="home__tasks-button">
-                                    <AddIcon />
-                                </button>
+                                {newItem && (
+                                    <div className="home__newtask">
+                                        <input type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
+                                    </div>
+                                )}
                             </div>
                         ) :
                         (
                             <div className="home__tasks-empty">
                                 <PlaylistAddCheckIcon className="home__tasks-icon" />
                                 <h3>Você ainda não tem tarefas registradas</h3>
-                            </div>
+                            </div> 
                         )
                         }
+                        <button
+                            className="home__tasks-button"
+                            onClick={() => setNewItem(true)}    
+                        >
+                            <AddIcon />
+                        </button>
                     </div>
                 </div>
             </main>
