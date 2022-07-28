@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import './Home.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -12,17 +12,17 @@ const Home = () => {
         {
             id: '73180',
             description: 'Go to Coffe',
-            isChecked: true,
+            done: true,
         },        
         {
             id: '19192',
             description: 'Create a React Native Tutorial',
-            isChecked: true,
+            done: false,
         },        
         {
             id: '94920',
             description: 'Make a Youtube Channel',
-            isChecked: false,
+            done: false,
         },     
     ]);
 
@@ -44,12 +44,25 @@ const Home = () => {
                         {tasks.length > 0 ?
                         (
                             <div className="home__tasks-wrapper">
-                                {tasks.map(task => (
-                                    <div>
-                                        <input type="checkbox" />
-                                        {task.isChecked ?
-                                            <span className='home__tasks-line-through'>{task.description}</span> :
-                                            <span>{task.description}</span>
+                                {tasks.map((task, index) => (
+                                    <div key={task.id}>
+                                        {task.done ?
+                                            <Fragment>
+                                                <input type="checkbox" checked={task.done} onChange={(e) => {
+                                                    const newTasksArray = [...tasks];
+                                                    newTasksArray[index].done = false;
+                                                    setTasks(newTasksArray);
+                                                }} />
+                                                <span className='home__tasks-line-through'>{task.description}</span>
+                                            </Fragment> :
+                                            <Fragment>
+                                                <input type="checkbox" checked={task.done} onChange={(e) => {
+                                                    const newTasksArray = [...tasks];
+                                                    newTasksArray[index].done = true;
+                                                    setTasks(newTasksArray);
+                                                }} />
+                                                <span>{task.description}</span>
+                                            </Fragment>
                                         }
                                         <DeleteIcon className="home__tasks-deleteicon" />
                                     </div>
