@@ -23,7 +23,7 @@ const Home = () => {
             id: '94920',
             description: 'Make a Youtube Channel',
             done: false,
-        },     
+        },   
     ]);
 
     return (
@@ -48,7 +48,7 @@ const Home = () => {
                                     <div key={task.id}>
                                         {task.done ?
                                             <Fragment>
-                                                <input type="checkbox" checked={task.done} onChange={(e) => {
+                                                <input type="checkbox" checked={task.done} onChange={() => {
                                                     const newTasksArray = [...tasks];
                                                     newTasksArray[index].done = false;
                                                     setTasks(newTasksArray);
@@ -56,7 +56,7 @@ const Home = () => {
                                                 <span className='home__tasks-line-through'>{task.description}</span>
                                             </Fragment> :
                                             <Fragment>
-                                                <input type="checkbox" checked={task.done} onChange={(e) => {
+                                                <input type="checkbox" checked={task.done} onChange={() => {
                                                     const newTasksArray = [...tasks];
                                                     newTasksArray[index].done = true;
                                                     setTasks(newTasksArray);
@@ -64,7 +64,14 @@ const Home = () => {
                                                 <span>{task.description}</span>
                                             </Fragment>
                                         }
-                                        <DeleteIcon className="home__tasks-deleteicon" />
+                                        <DeleteIcon
+                                            className="home__tasks-deleteicon"
+                                            onClick={() => {
+                                                const newTasksArray = [...tasks];
+                                                newTasksArray.splice(index, 1);
+                                                setTasks(newTasksArray);
+                                            }}
+                                        />
                                     </div>
                                 ))}
                                 <button className="home__tasks-button">
