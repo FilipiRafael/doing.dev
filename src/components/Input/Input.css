@@ -1,0 +1,17 @@
+.input__label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #344054;
+}
+
+.input__field {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border-radius: 0.5rem;
+    border: 1px solid #D0D5DD;
+    outline: none;
+}

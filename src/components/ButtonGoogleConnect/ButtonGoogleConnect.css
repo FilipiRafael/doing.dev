@@ -1,0 +1,23 @@
+.buttonGoogleConnect {
+    width: 100%;
+    background-color: #EFEEEE;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0;
+    text-align: center;
+    color: #344054;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #D0D5DD;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.buttonGoogleConnect .googleIcon {
+    font-size: 1.5rem;
+    color: #344054;
+    margin-right: 0.5rem;
+}

@@ -1,0 +1,22 @@
+.signup__section {
+    background-image: url('/public/images/background-signup.svg');
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.signup__section .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup__section img {
+    min-width: 680px;
+    width: 100%;
+}
