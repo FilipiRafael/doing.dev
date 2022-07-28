@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
+:root {
+  --color-container-todolist: #FFFFFF;
+  --color-music-player: #121214;
+}
+
 body {
   margin: 0;
   padding: 0;
