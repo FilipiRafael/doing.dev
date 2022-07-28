@@ -15,6 +15,9 @@ const SignUpCard = () => {
             <Button title="Criar Conta" />
             <ButtonGoogleConnect title="Registrar-se com Google" />
             <ButtonGithubConnect title="Registrar-se com Github" />
+            <h5>Já tem uma conta? 
+                <span> Faça Login</span>
+            </h5>
         </article>
     )
 }
