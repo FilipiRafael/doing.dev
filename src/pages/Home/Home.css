@@ -27,14 +27,16 @@
 
 .home__section main {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .home__section .home__header {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    margin-left: 6rem;
-    height: 20vh;
+    margin-left: 8rem;
+    height: 25vh;
     width: 100%;
 }
 
@@ -43,13 +45,65 @@
     font-size: 5rem;
     color: #FFF;
     z-index: 1;
-    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 .home__section .home__header > img {
     position: absolute;
     top: -5rem;
     right: 12rem;
-    min-width: 290px;
-    width: 25%;
+    min-width: 320px;
+    width: 24%;
+}
+
+.home__section .home__content {
+    height: 75vh;
+    background-color: var(--color-container-todolist);
+    border-radius: 2rem 2rem 0 0;
+    z-index: 1;
+}
+
+.home__section .home__content .home__tasks-empty {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home__section .home__content .home__tasks-empty h3 {
+    color: #7C7C8A;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.home__section .home__content .home__tasks-empty .home__tasks-icon {
+    color: #7C7C8A;
+    font-size: 4rem;
+}
+
+.home__section .home__content .home__tasks-wrapper {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4rem 8rem 0;
+}
+
+.home__section .home__tasks-wrapper > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.2rem 0;
+}
+
+.home__section .home__tasks-wrapper input {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 2rem;
+    margin-right: 1.2rem;
 }
