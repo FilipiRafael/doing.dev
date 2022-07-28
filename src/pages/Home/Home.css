@@ -98,6 +98,16 @@
     justify-content: flex-start;
     align-items: center;
     margin: 0.2rem 0;
+    position: relative;
+    width: 80vw;
+    transition: all 0.3s;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.home__section .home__tasks-wrapper > div:hover,
+.home__section .home__tasks-wrapper > div:focus {
+    background-color: rgba(211, 211, 211, 0.2);
 }
 
 .home__section .home__tasks-wrapper input {
@@ -106,4 +116,42 @@
     height: 24px;
     border-radius: 2rem;
     margin-right: 1.2rem;
+}
+
+.home__tasks-button {
+    border: none;
+    background-color: #5770F7;
+    color: #FFF;
+    padding: 0.5rem;
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 3.5rem;
+    bottom: 3rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.home__tasks-button:hover,
+.home__tasks-button:focus {
+    background-color: #425df7;
+}
+
+.home__tasks-deleteicon {
+    transition: all 1s !important;
+    color: #7C7C8A;
+    cursor: pointer;
+    position: absolute;
+    left: 97%;
+}
+
+.home__tasks-deleteicon:hover,
+.home__tasks-deleteicon:focus {
+    color: rgb(181, 48, 48);
+}
+
+.home__tasks-line-through {
+    text-decoration: line-through;
+    opacity: 0.35;
 }
