@@ -63,6 +63,9 @@
     right: 12rem;
     min-width: 320px;
     width: 24%;
+    animation: pulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
 }
 
 .home__section .home__content {
