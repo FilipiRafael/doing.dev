@@ -36,7 +36,11 @@ const Home = () => {
             {sideBar && <SideBar />}
             <header>
                 <nav>
-                    <MenuIcon className="navbar__icon" onClick={showSideBar} />
+                    {sideBar ? (
+                        <MenuIcon className="navbar__icon-sidebar" onClick={showSideBar} />
+                    ) : (
+                        <MenuIcon className="navbar__icon" onClick={showSideBar} />
+                    )}
                     <LogoutIcon className="navbar__icon" />
                 </nav>
             </header>
@@ -93,18 +97,27 @@ const Home = () => {
                             </div>
                         ) :
                         (
-                            <div className="home__tasks-empty">
-                                <PlaylistAddCheckIcon className="home__tasks-icon" />
-                                <h3>Você ainda não tem tarefas registradas</h3>
-                            </div> 
+                            newItem && tasks.length === 0 ? (
+                                <div className="home__tasks-empty-newitem">
+                                    <PlaylistAddCheckIcon className="home__tasks-icon" />
+                                    <h3>Você ainda não tem tarefas registradas</h3>
+                                </div> 
+                            ) : (
+                                <div className="home__tasks-empty">
+                                    <PlaylistAddCheckIcon className="home__tasks-icon" />
+                                    <h3>Você ainda não tem tarefas registradas</h3>
+                                </div> 
+                            )
                         )
                         }
-                        <button
-                            className="home__tasks-button"
-                            onClick={() => setNewItem(true)}    
-                        >
-                            <AddIcon />
-                        </button>
+                        {!sideBar && (
+                            <button
+                                className="home__tasks-button"
+                                onClick={() => setNewItem(true)}    
+                            >
+                                <AddIcon />
+                            </button>
+                        )}                        
                     </div>
                 </div>
             </main>
