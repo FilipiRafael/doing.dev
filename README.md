@@ -21,6 +21,7 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 - LocalStorage
 - NPM / NPX
 - MUI Lib para ícones
+- Animate.css
 - Github Projects
 - Vercel
 ##
