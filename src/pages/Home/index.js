@@ -45,10 +45,16 @@ const Home = () => {
                 </nav>
             </header>
             <main>
-                <div className="home__header">
-                    <h2>What's up, Juliana?</h2>
-                    <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
-                </div>
+                {sideBar ? (
+                    <div className="home__header">
+                        <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
+                    </div>
+                ) : (
+                    <div className="home__header">
+                        <h2>What's up, Juliana?</h2>
+                        <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
+                    </div>
+                )}
                 <div className="home__content">
                     <div className="home__todolist">
                         {newItem && tasks.length === 0 && (

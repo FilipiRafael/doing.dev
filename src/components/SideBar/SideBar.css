@@ -15,6 +15,30 @@
     padding-top: 2.5rem;
 }
 
+.sidebar img {
+    width: 180px;
+    border-radius: 50%;
+}
+
+.sidebar h2 {
+    width: 50%;
+    text-align: center;
+}
+
+.sidebar .theme {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.sidebar .theme span {
+    font-weight: 500;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
 .sidebar img.hand {
     min-width: 280px;
     width: 100%;
