@@ -73,8 +73,13 @@ const Home = () => {
 
     function getThemeFromLocalStorage() {
         const theme = JSON.parse(localStorage.getItem('theme'));
-        changeTheme(theme);
-        if (isThemeEqual(theme, darkTheme)) setDarkTheme(true)
+
+        if (theme !== null) {
+            if (isThemeEqual(theme, darkTheme)) setDarkTheme(true);
+            changeTheme(theme);
+        }
+
+        if (theme === null) changeTheme(lightThemeObj);
     }
 
     function isThemeEqual(firstTheme, secondTheme) {
