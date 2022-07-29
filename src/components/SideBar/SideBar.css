@@ -52,9 +52,9 @@
     width: 100%;
     object-fit: cover;
     position: absolute;
-    bottom: -12rem;
+    bottom: -10rem;
     z-index: -1;
     animation: pulse;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
 }

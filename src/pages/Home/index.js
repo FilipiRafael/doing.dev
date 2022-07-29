@@ -10,9 +10,9 @@ import SideBar from '../../components/SideBar';
 const Home = () => {
 
     const [tasks, setTasks] = useState([]);
-
     const [newItem, setNewItem] = useState(false);
     const [sideBar, setSideBar] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(false);
 
     function showSideBar() {
         setSideBar(!sideBar);
@@ -33,7 +33,7 @@ const Home = () => {
 
     return (
         <section className="home__section">
-            {sideBar && <SideBar />}
+            {sideBar && <SideBar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />}
             <header>
                 <nav>
                     {sideBar ? (

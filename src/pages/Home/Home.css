@@ -143,6 +143,11 @@
     height: 24px;
     border-radius: 2rem;
     margin-right: 1.2rem;
+    border: 1px solid red;
+}
+
+.home__section .home__tasks-wrapper span {
+    color: var(--text-color-todolist);
 }
 
 .home__tasks-button {
@@ -190,6 +195,8 @@
     border: none;
     padding: 0.5rem;
     font-size: 1rem;
+    background-color: var(--color-container-todolist);
+    color: var(--text-color-todolist);
 }
 
 .home__todolist .home__newtask-emptylist input {
@@ -200,4 +207,6 @@
     border: none;
     padding: 0.5rem;
     font-size: 1rem;
+    background-color: transparent;
+    color: var(--text-color-todolist);
 }
