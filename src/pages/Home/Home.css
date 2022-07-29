@@ -193,7 +193,7 @@
 }
 
 .home__todolist .home__newtask-emptylist input {
-    margin: 0 8rem;
+    margin-left: 10rem;
     width: 80%;
     margin-top: 4rem;
     outline: none;
