@@ -16,10 +16,19 @@
     height: 100vh;
 }
 
-.signup__section img {
+.signup__section img.man {
     min-width: 680px;
     width: 100%;
     animation: pulse;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
+}
+
+.signup__section .brand {
+    width: 150px;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
 }

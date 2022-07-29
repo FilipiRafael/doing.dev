@@ -25,6 +25,10 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 - Animate.css
 - Github Projects
 - Vercel
+
+## 🚀 Tarefas para completar o projeto no Github Projects (Screenshot do momento em desenvolvimento).
+<img src="./public/screenshots/screenshot-github-projects.png" alt="App Screenshot 1">
+
 ##
 <img src="./public/screenshots/image1.png" alt="App Screenshot 1">
 <img src="./public/screenshots/image2.png" alt="App Screenshot 1">

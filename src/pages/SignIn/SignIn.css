@@ -16,10 +16,19 @@
     height: 100vh;
 }
 
-.signin__section img {
+.signin__section img.woman {
     min-width: 680px;
     width: 100%;
     animation: pulse;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
+}
+
+.signin__section .brand {
+    width: 150px;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
