@@ -21,6 +21,8 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 - LocalStorage
 - NPM / NPX
 - MUI Lib para ícones
+- Github Projects
+- Vercel
 ##
 <img src="./public/screenshots/image1.png" alt="App Screenshot 1">
 <img src="./public/screenshots/image2.png" alt="App Screenshot 1">
