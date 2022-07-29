@@ -5,33 +5,18 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SideBar from '../../components/SideBar';
 
 const Home = () => {
 
-    const [tasks, setTasks] = useState([
-        {
-            id: '73180',
-            description: 'Go to Coffe',
-            done: true,
-        },        
-        {
-            id: '19192',
-            description: 'Create a React Native Tutorial',
-            done: false,
-        },        
-        {
-            id: '94920',
-            description: 'Make a Youtube Channel',
-            done: false,
-        },   
-        {
-            id: '29293',
-            description: 'Mais uma task',
-            done: false,
-        },   
-    ]);
+    const [tasks, setTasks] = useState([]);
 
     const [newItem, setNewItem] = useState(false);
+    const [sideBar, setSideBar] = useState(false);
+
+    function showSideBar() {
+        setSideBar(!sideBar);
+    }
 
     function handleKeyUp(e) {
         if (e.key === 'Enter') {
@@ -48,9 +33,10 @@ const Home = () => {
 
     return (
         <section className="home__section">
+            {sideBar && <SideBar />}
             <header>
                 <nav>
-                    <MenuIcon className="navbar__icon" />
+                    <MenuIcon className="navbar__icon" onClick={showSideBar} />
                     <LogoutIcon className="navbar__icon" />
                 </nav>
             </header>

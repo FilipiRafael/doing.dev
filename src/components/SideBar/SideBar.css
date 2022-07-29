@@ -1,0 +1,21 @@
+.sidebar {
+    background-color: #FBA94C;
+    min-width: 300px;
+    width: 22vw;
+    height: 94.5vh;
+    max-height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2.5rem;
+}
+
+.sidebar img.hand {
+    min-width: 280px;
+    width: 100%;
+    object-fit: cover;
+}
