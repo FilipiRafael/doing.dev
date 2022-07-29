@@ -19,4 +19,7 @@
 .signin__section img {
     min-width: 680px;
     width: 100%;
+    animation: pulse;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
 }

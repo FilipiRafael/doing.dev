@@ -1,6 +1,7 @@
 import React from 'react';
 import './SignUp.css';
 import SignUpCard from '../../components/SignUpCard';
+import 'animate.css';
 
 const SignUp = () => {
     return (

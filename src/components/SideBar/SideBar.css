@@ -16,26 +16,34 @@
 }
 
 .sidebar img {
-    width: 180px;
+    width: 150px;
     border-radius: 50%;
 }
 
 .sidebar h2 {
     width: 50%;
     text-align: center;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
 }
 
 .sidebar .theme {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    margin-top: 1rem;
     width: 100%;
+    margin-top: 1rem;
+}
+
+.sidebar .sidebar__switchbutton {
+    margin: 0 1.5rem;
 }
 
 .sidebar .theme span {
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 1.2rem;
     opacity: 0.7;
 }
 
@@ -43,4 +51,10 @@
     min-width: 280px;
     width: 100%;
     object-fit: cover;
+    position: absolute;
+    bottom: -12rem;
+    z-index: -1;
+    animation: pulse;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
 }

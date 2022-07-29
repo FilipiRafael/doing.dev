@@ -1,5 +1,6 @@
 import SignInCard from '../../components/SignInCard';
 import './SignIn.css';
+import 'animate.css';
 
 const SignIn = () => {
     return (

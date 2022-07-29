@@ -1,5 +1,6 @@
 import SwitchButtonIOS from '../SwitchButtonIOS';
 import './SideBar.css';
+import 'animate.css';
 
 const SideBar = () => {
     return (
@@ -8,7 +9,7 @@ const SideBar = () => {
             <h2>Juliana Amoasei</h2>
             <div className="theme">
                 <span>Light</span>
-                <SwitchButtonIOS />
+                <SwitchButtonIOS className="sidebar__switchbutton" />
                 <span>Dark</span>
             </div>
             <img className="hand" src="/images/hand.svg" alt="hand sidebar" aria-hidden />
