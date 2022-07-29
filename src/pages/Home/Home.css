@@ -112,12 +112,14 @@
 
 .home__section .home__content .home__tasks-wrapper {
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 4rem 8rem 0;
+    padding: 0 8rem;
+    margin-top: 4rem;
+    overflow-y: scroll;
 }
 
 .home__section .home__tasks-wrapper > div {
