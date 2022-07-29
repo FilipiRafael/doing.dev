@@ -62,7 +62,7 @@ const Home = () => {
                                 <input type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
                             </div>
                         )}
-                        {tasks.length > 0 ?
+                        {tasks.length > 0 && !sideBar ?
                         (
                             <div className="home__tasks-wrapper">
                                 {tasks.map((task, index) => (
@@ -109,10 +109,12 @@ const Home = () => {
                                     <h3>Você ainda não tem tarefas registradas</h3>
                                 </div> 
                             ) : (
+                                sideBar ?
+                                <></> :
                                 <div className="home__tasks-empty">
                                     <PlaylistAddCheckIcon className="home__tasks-icon" />
                                     <h3>Você ainda não tem tarefas registradas</h3>
-                                </div> 
+                                </div>  
                             )
                         )
                         }
