@@ -128,7 +128,7 @@
     position: relative;
     width: 82vw;
     transition: all 0.3s;
-    padding: 0.2rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
 }
 
@@ -137,12 +137,59 @@
     background-color: rgba(211, 211, 211, 0.2);
 }
 
+/* Esconder o checkbox */
 .home__section .home__tasks-wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
-    width: 24px;
-    height: 24px;
-    border-radius: 2rem;
+    height: 25px;
+    width: 25px;
+    z-index: 1;
+}
+
+/* Criar o checkbox customizado */
+.checkmark {
     margin-right: 1.2rem;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border: 2px solid #7c7c8a96;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+/* Adicionar uma cor de fundo cinza ao passar o mouse */
+.home__section .home__tasks-wrapper input[type="checkbox"]:hover ~ .checkmark {
+    background-color: #576ff76b;
+}
+
+/* Quando o checkbox é clicado, adicionar um fundo rosa */
+.home__section .home__tasks-wrapper input[type="checkbox"]:checked ~ .checkmark {
+    background-color: var(--checked-color-background);
+}
+
+/* Criar o ícone de check, escondido quando não estiver selecionado */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 19px;
+    top: 3px;
+    width: 8px;
+    height: 18px;
+    border: solid var(--checked-color-icon);
+    border-width: 0 5px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Exibir o ícone quando selecionado */
+.home__section .home__tasks-wrapper input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
 }
 
 .home__section .home__tasks-wrapper span {

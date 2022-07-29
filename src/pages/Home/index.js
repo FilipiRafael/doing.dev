@@ -74,6 +74,7 @@ const Home = () => {
                                                     newTasksArray[index].done = false;
                                                     setTasks(newTasksArray);
                                                 }} />
+                                                <span class="checkmark"></span>
                                                 <span className='home__tasks-line-through'>{task.description}</span>
                                             </Fragment> :
                                             <Fragment>
@@ -82,6 +83,7 @@ const Home = () => {
                                                     newTasksArray[index].done = true;
                                                     setTasks(newTasksArray);
                                                 }} />
+                                                <span class="checkmark"></span>
                                                 <span>{task.description}</span>
                                             </Fragment>
                                         }

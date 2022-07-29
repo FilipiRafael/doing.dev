@@ -4,6 +4,8 @@
   --color-container-todolist: #FFF;
   --color-music-player: #121214;
   --text-color-todolist: #121214;
+  --checked-color-icon: #5770F7;
+  --checked-color-background: #FFF;
 }
 
 body {
