@@ -20,6 +20,7 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 - Firebase
 - LocalStorage
 - NPM / NPX
+- React Router DOM
 - MUI Lib para ícones
 - Animate.css
 - Github Projects
