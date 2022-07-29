@@ -23,6 +23,7 @@
     color: #FFF;
     font-size: 2rem;
     cursor: pointer;
+    z-index: 1;
 }
 
 .home__section nav > .navbar__icon-sidebar {
@@ -30,6 +31,7 @@
     font-size: 2rem;
     cursor: pointer;
     margin-left: 20rem;
+    z-index: 1;
 }
 
 .home__section main {

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import './Home.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -31,9 +31,65 @@ const Home = () => {
         }
     }
 
+    const rootElement = document.documentElement;
+
+    const lightThemeObj = {
+        '--color-container-todolist': '#F1F1F1',
+        '--color-music-player': '#121214',
+        '--text-color-todolist': '#121214',
+       '--checked-color-icon': '#5770F7',
+        '--checked-color-background': '#FFF'
+    }
+
+    const darkThemeObj = {
+        '--color-container-todolist': '#121214',
+        '--color-music-player': '#F1F1F1',
+        '--text-color-todolist': '#F1F1F1',
+        '--checked-color-icon': '#FFF',
+        '--checked-color-background': '#5770F7'
+    }
+
+    function toggleTheme() {
+        setDarkTheme(!darkTheme);
+        darkTheme ? changeTheme(lightThemeObj) : changeTheme(darkThemeObj);
+        darkTheme ? saveThemeToLocalStorage(lightThemeObj) : saveThemeToLocalStorage(darkThemeObj);
+    }
+
+    function changeTheme(theme) {
+        for (let prop in theme) {
+            changeProperty(prop, theme[prop]);
+        }
+    }
+
+    function changeProperty(property, value) {
+        rootElement.style.setProperty(property, value);
+    }
+
+    function saveThemeToLocalStorage(theme) {
+        localStorage.setItem('theme', JSON.stringify(theme))
+    }
+
+
+    function getThemeFromLocalStorage() {
+        const theme = JSON.parse(localStorage.getItem('theme'));
+        changeTheme(theme);
+        if (isThemeEqual(theme, darkTheme)) setDarkTheme(true)
+    }
+
+    function isThemeEqual(firstTheme, secondTheme) {
+        for (let prop in firstTheme) {
+            if (firstTheme[prop] !== secondTheme[prop]) return false;
+        }
+        return true;
+    }
+
+    useEffect(() => {
+        getThemeFromLocalStorage();
+    });
+
     return (
         <section className="home__section">
-            {sideBar && <SideBar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />}
+            {sideBar && <SideBar darkTheme={darkTheme} isChecked={darkTheme} toggleTheme={toggleTheme} />}
             <header>
                 <nav>
                     {sideBar ? (
@@ -74,7 +130,7 @@ const Home = () => {
                                                     newTasksArray[index].done = false;
                                                     setTasks(newTasksArray);
                                                 }} />
-                                                <span class="checkmark"></span>
+                                                <span className="checkmark"></span>
                                                 <span className='home__tasks-line-through'>{task.description}</span>
                                             </Fragment> :
                                             <Fragment>
@@ -83,7 +139,7 @@ const Home = () => {
                                                     newTasksArray[index].done = true;
                                                     setTasks(newTasksArray);
                                                 }} />
-                                                <span class="checkmark"></span>
+                                                <span className="checkmark"></span>
                                                 <span>{task.description}</span>
                                             </Fragment>
                                         }
