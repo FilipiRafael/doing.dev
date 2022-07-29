@@ -59,7 +59,7 @@ const Home = () => {
                     <div className="home__todolist">
                         {newItem && tasks.length === 0 && (
                             <div className="home__newtask-emptylist">
-                                <input type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
+                                <input autoFocus type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
                             </div>
                         )}
                         {tasks.length > 0 && !sideBar ?
@@ -99,7 +99,7 @@ const Home = () => {
                                 ))}
                                 {newItem && (
                                     <div className="home__newtask">
-                                        <input type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
+                                        <input autoFocus type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
                                     </div>
                                 )}
                             </div>
