@@ -3,6 +3,7 @@ import Input from '../Input';
 import Button from '../Button';
 import ButtonGoogleConnect from '../ButtonGoogleConnect';
 import ButtonGithubConnect from '../ButtonGithubConnect';
+import { Link } from 'react-router-dom';
 
 const SignUpCard = () => {
     return (
@@ -16,7 +17,9 @@ const SignUpCard = () => {
             <ButtonGoogleConnect title="Registrar-se com Google" />
             <ButtonGithubConnect title="Registrar-se com Github" />
             <h5>Já tem uma conta? 
-                <span> Faça Login</span>
+                <Link className="link" to="/">
+                    Faça Login
+                </Link>
             </h5>
         </article>
     )

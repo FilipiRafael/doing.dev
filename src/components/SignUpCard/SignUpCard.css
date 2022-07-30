@@ -27,7 +27,9 @@
     color: rgba(0, 0, 0, 0.6);
 }
 
-.signup__card h5 > span {
+.signup__card h5 > .link {
     color: #5429FF;
     cursor: pointer;
+    text-decoration: none;
+    margin-left: 0.5rem;
 }
