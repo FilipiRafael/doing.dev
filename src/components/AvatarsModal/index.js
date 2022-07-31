@@ -1,7 +1,7 @@
 import './AvatarsModal.css'
 import { Modal, Box } from '@mui/material';
 
-const AvatarsModal = () => {
+const AvatarsModal = ({ openAvatarsModal, setOpenAvatarsModal, setUrlAvatar, saveAvatarToLocalStorage }) => {
 
     const avatarsArray = [
         'avatar1',
@@ -29,11 +29,21 @@ const AvatarsModal = () => {
     return (
         <Modal
             className="avatarsModal"
-            open={true}
+            open={openAvatarsModal}
         >
             <Box className="avatarsBox">
                 {avatarsArray.map((image, index) => (
-                    <img className="avatar-image" key={`${image}/${index}`} src={`/images/avatars/${image}.png`} alt="avatar" aria-hidden />
+                    <img
+                        className="avatar-image"
+                        key={`${image}/${index}`}
+                        src={`/images/avatars/${image}.png`}
+                        alt="avatar" aria-hidden
+                        onClick={() => {
+                            setUrlAvatar(`/images/avatars/${image}.png`);
+                            saveAvatarToLocalStorage(`/images/avatars/${image}.png`);
+                            setOpenAvatarsModal(false);
+                        }}
+                    />
                 ))}
             </Box>
         </Modal>
