@@ -113,7 +113,7 @@ const Home = () => {
                     </div>
                 ) : (
                     <div className="home__header">
-                        <h2>What's up, Juliana?</h2>
+                        <h2>What's up, Filipi?</h2>
                         <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
                     </div>
                 )}

@@ -1,0 +1,30 @@
+.avatarsModal {
+    width: 40rem;
+    height: 30rem;
+    background-color: #121212;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 1rem;
+    border: 2px solid #FBA94C;
+    padding: 0.5rem;
+    display: flex;
+    overflow: scroll;
+}
+
+.avatarsModal .avatarsBox {
+    outline: none;
+}
+
+.avatarsModal .avatar-image {
+    width: 140px;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.avatarsModal .avatar-image:hover,
+.avatarsModal .avatar-image:focus {
+    transform: scale(1.1);
+}
