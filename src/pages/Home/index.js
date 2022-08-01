@@ -6,14 +6,24 @@ import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SideBar from '../../components/SideBar';
+import { auth } from '../../services/firebase';
 import 'animate.css';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ user, setUser, setIsAuth, name }) => {
 
     const [tasks, setTasks] = useState([]);
     const [newItem, setNewItem] = useState(false);
     const [sideBar, setSideBar] = useState(false);
     const [darkTheme, setDarkTheme] = useState(false);
+    const navigate = useNavigate();
+
+    function handleSignOut() {
+        auth.signOut();
+        setIsAuth(false);
+        setUser('');
+        navigate('/');
+    }
 
     function showSideBar() {
         setSideBar(!sideBar);
@@ -95,7 +105,7 @@ const Home = () => {
 
     return (
         <section className="home__section">
-            {sideBar && <SideBar darkTheme={darkTheme} isChecked={darkTheme} toggleTheme={toggleTheme} />}
+            {sideBar && <SideBar user={user} name={name} darkTheme={darkTheme} toggleTheme={toggleTheme} />}
             <header>
                 <nav>
                     {sideBar ? (
@@ -103,7 +113,7 @@ const Home = () => {
                     ) : (
                         <MenuIcon className="navbar__icon" onClick={showSideBar} />
                     )}
-                    <LogoutIcon className="navbar__icon" />
+                    <LogoutIcon className="navbar__icon" onClick={handleSignOut} />
                 </nav>
             </header>
             <main>
@@ -113,7 +123,8 @@ const Home = () => {
                     </div>
                 ) : (
                     <div className="home__header">
-                        <h2>What's up, Filipi?</h2>
+                        {user.displayName ? <h2>What's up, {String(user.displayName).split(' ')[0]}?</h2> :
+                        <h2>What's up, {name}?</h2>}
                         <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
                     </div>
                 )}

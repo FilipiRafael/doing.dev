@@ -1,15 +1,26 @@
+import { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 
 export function AppRoutes() {
+
+    const [user, setUser] = useState('');
+    const [isAuth, setIsAuth] = useState(false);
+    const [name, setName] = useState('');
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<SignIn />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/home" element={<Home />} />
+                {isAuth ? (
+                    <Route path="/home" element={<Home user={user} setUser={setUser} setIsAuth={setIsAuth} name={name} />} />
+                ) : (
+                    <Fragment>
+                        <Route path="/" element={<SignIn setUser={setUser} setIsAuth={setIsAuth} />} />
+                        <Route path="/signup" element={<SignUp setUser={setUser} setIsAuth={setIsAuth} name={name} setName={setName} />} />
+                    </Fragment>
+                )}
             </Routes>
         </Router>
     )

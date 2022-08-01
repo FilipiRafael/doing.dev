@@ -1,11 +1,23 @@
 import { Fragment } from 'react';
 import './Button.css';
 
-const Button = ({title, isLoading}) => {
+const Button = ({title, isLoading, onClick}) => {
     return (
         <Fragment>
-            {isLoading ? <button className="button__component" disabled>{title}</button> :
-            <button className="button__component">{title}</button>}
+            {isLoading ? 
+            <button
+                onClick={onClick}
+                className="button__component-disabled"
+            >
+                {title}
+            </button> :
+            <button
+                className="button__component"
+                onClick={onClick}
+            >
+                    {title}
+            </button>
+            }
         </Fragment>
     )
 }

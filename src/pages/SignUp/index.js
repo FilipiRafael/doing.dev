@@ -2,7 +2,7 @@ import './SignUp.css';
 import SignUpCard from '../../components/SignUpCard';
 import 'animate.css';
 
-const SignUp = () => {
+const SignUp = ({ setUser, setIsAuth, name, setName }) => {
 
     return (
         <section className="signup__section">
@@ -11,7 +11,7 @@ const SignUp = () => {
                 <img className="man" src="/images/man.svg" alt="man" aria-hidden />
             </div>
             <div className="content">
-                <SignUpCard />
+                <SignUpCard setUser={setUser} setIsAuth={setIsAuth} name={name} setName={setName} />
             </div>
         </section>
     )
