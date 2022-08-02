@@ -17,3 +17,13 @@
 .player__changeButton {
     margin: 0 1.5rem;
 }
+
+@media only screen and (max-width: 1024px) {
+    .music__player {
+        width: 220px;
+    }
+
+    .player__changeButton {
+        margin: 0 2.2rem;
+    }
+}

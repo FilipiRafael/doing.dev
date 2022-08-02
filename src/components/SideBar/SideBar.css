@@ -2,7 +2,7 @@
     background-color: #FBA94C;
     min-width: 300px;
     width: 22vw;
-    height: 94.5vh;
+    height: 100vh;
     max-height: 100vh;
     overflow: hidden;
     position: absolute;
@@ -51,6 +51,7 @@
 .sidebar img.hand {
     min-width: 280px;
     width: 100%;
+    max-width: 300px;
     object-fit: cover;
     position: absolute;
     bottom: -10rem;

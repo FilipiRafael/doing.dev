@@ -33,3 +33,24 @@
     right: 0;
     margin: auto;
 }
+
+@media only screen and (max-width: 1024px) {
+
+    .signup__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .signup__section img.man {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
+    .signup__section .brand {
+        width: 250px;
+    }
+}

@@ -33,3 +33,24 @@
     right: 0;
     margin: auto;
 }
+
+@media only screen and (max-width: 1024px) {
+
+    .signin__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .signin__section img.woman {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
+    .signin__section .brand {
+        width: 250px;
+    }
+}

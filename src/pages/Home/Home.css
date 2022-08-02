@@ -133,7 +133,7 @@
     align-items: center;
     margin: 0.2rem 0;
     position: relative;
-    width: 82vw;
+    width: 70vw;
     transition: all 0.3s;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -270,4 +270,62 @@
     left: 0;
     right: 0;
     margin: auto;
+}
+
+@media only screen and (max-width: 880px) {
+    .home__section .home__header {
+        margin-left: 0.5rem;
+    }
+
+    .home__section .home__header h2 {
+        font-size: 4rem;
+    }
+
+    .home__section .home__header > img {
+        right: 0;
+        left: 0;
+        margin: auto;
+        min-width: 390px;
+        width: 50%;
+    }
+
+    .home__section nav > .navbar__icon-sidebar {
+        margin-left: 14rem;
+        z-index: 2;
+    }
+
+    .home__todolist .home__newtask-emptylist input {
+        margin-left: 2rem;
+        width: 60%;
+    }
+
+    .home__section .home__content .home__tasks-wrapper {
+        padding: 0 2rem;
+    }
+
+    .home__section .home__tasks-wrapper > div {
+        width: 85vw;
+    }
+
+    .home__tasks-deleteicon {
+        left: 92%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .home__section .home__content .home__tasks-empty h3 {
+        text-align: center;
+        margin: 0 1rem;
+    }
+
+    .home__tasks-button {
+        bottom: 1.2rem;
+        right: 1.5rem;
+    }
+
+    .home__section .home__header h2 {
+        text-align: center;
+    }
+
 }
