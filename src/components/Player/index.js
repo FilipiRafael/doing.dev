@@ -68,12 +68,14 @@ const Player = () => {
                 />
                 {play ? 
                 <PauseCircleIcon
+                    className="player__changeButton"
                     onClick={() => {
                         setPlay(false);
                         player.pause();
                     }}  
                 /> : 
                 <PlayCircleFilledIcon
+                    className="player__changeButton"
                     onClick={() => {
                         setPlay(true);
                         player.play();

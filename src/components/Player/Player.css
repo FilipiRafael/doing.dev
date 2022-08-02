@@ -5,11 +5,15 @@
     right: 0;
     bottom: 1rem;
     margin: auto;
-    width: 150px;
+    width: 200px;
 }
 
 .music__player svg {
     color: var(--color-music-player);
     font-size: 3rem;
     cursor: pointer;
+}
+
+.player__changeButton {
+    margin: 0 1.5rem;
 }
