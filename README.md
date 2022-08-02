@@ -17,7 +17,7 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 - HTML/CSS
 - Javascript
 - React
-- Firebase
+- Firebase (Firestore e Auth)
 - LocalStorage
 - NPM / NPX
 - React Router DOM
