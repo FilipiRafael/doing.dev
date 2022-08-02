@@ -11,9 +11,9 @@ const Player = () => {
     const player = document.querySelector('audio');
 
     const playlist = [
-        'https://mp3.chillhop.com/serve.php/?mp3=11768',
-        'https://mp3.chillhop.com/serve.php/?mp3=10075',
         'https://mp3.chillhop.com/serve.php/?mp3=9272',
+        'https://mp3.chillhop.com/serve.php/?mp3=10075',
+        'https://mp3.chillhop.com/serve.php/?mp3=11768',
         'https://mp3.chillhop.com/serve.php/?mp3=9222',
         'https://mp3.chillhop.com/serve.php/?mp3=10310',
         'https://mp3.chillhop.com/serve.php/?mp3=9248',
@@ -33,6 +33,7 @@ const Player = () => {
 
     const [musicRef, setMusicRef] = useState(0)
     const [play, setPlay] = useState(false);
+    const [autoPlay, setAutoPlay] = useState(false);
 
     function nextMusic() {
         if (musicRef >= playlist.length) {
@@ -40,6 +41,7 @@ const Player = () => {
             player.play()
         }
         setMusicRef(musicRef + 1);
+        setAutoPlay(true);
         player.play();
     }
 
@@ -49,6 +51,7 @@ const Player = () => {
             player.play()
         }
         setMusicRef(musicRef - 1);
+        setAutoPlay(true);
         player.play()
     }
 
@@ -57,7 +60,7 @@ const Player = () => {
         <Fragment>
             <ReactAudioPlayer
                 src={playlist[musicRef]}
-                autoPlay
+                autoPlay={autoPlay}
                 onEnded={nextMusic}
                 onPlay={() => setPlay(true)}
                 onPause={() => setPlay(false)}
@@ -78,6 +81,7 @@ const Player = () => {
                     className="player__changeButton"
                     onClick={() => {
                         setPlay(true);
+                        setAutoPlay(true);
                         player.play();
                     }}
                 />}

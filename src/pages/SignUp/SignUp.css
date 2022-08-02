@@ -34,6 +34,16 @@
     margin: auto;
 }
 
+@media only screen and (max-width: 414px) {
+
+    .signup__section .content {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 1rem;
+    }
+
+}
+
 @media only screen and (max-width: 1024px) {
 
     .signup__section {

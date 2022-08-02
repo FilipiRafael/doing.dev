@@ -43,3 +43,16 @@
     top: 80%;
     z-index:10;
 }
+
+@media only screen and (max-width: 414px) {
+
+    .signin__card h4 {
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    .signin__card {
+        width: 280px;
+        height: 470px;
+        padding: 1rem 1rem 2rem;
+    }
+}
