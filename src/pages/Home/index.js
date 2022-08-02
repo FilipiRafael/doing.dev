@@ -10,7 +10,7 @@ import { auth } from '../../services/firebase';
 import 'animate.css';
 import { useNavigate } from 'react-router-dom';
 
-const Home = ({ user, setUser, setIsAuth, name }) => {
+const Home = ({ user, setUser, setIsAuth }) => {
 
     const [tasks, setTasks] = useState([]);
     const [newItem, setNewItem] = useState(false);
@@ -105,7 +105,7 @@ const Home = ({ user, setUser, setIsAuth, name }) => {
 
     return (
         <section className="home__section">
-            {sideBar && <SideBar user={user} name={name} darkTheme={darkTheme} toggleTheme={toggleTheme} />}
+            {sideBar && <SideBar user={user} darkTheme={darkTheme} toggleTheme={toggleTheme} />}
             <header>
                 <nav>
                     {sideBar ? (
@@ -124,7 +124,7 @@ const Home = ({ user, setUser, setIsAuth, name }) => {
                 ) : (
                     <div className="home__header">
                         {user.displayName ? <h2>What's up, {String(user.displayName).split(' ')[0]}?</h2> :
-                        <h2>What's up, {name}?</h2>}
+                        <h2>What's up, my friend?</h2>}
                         <img src="/images/girl.svg" alt="girl vetor" aria-hidden />
                     </div>
                 )}

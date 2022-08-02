@@ -8,17 +8,16 @@ export function AppRoutes() {
 
     const [user, setUser] = useState('');
     const [isAuth, setIsAuth] = useState(false);
-    const [name, setName] = useState('');
 
     return (
         <Router>
             <Routes>
                 {isAuth ? (
-                    <Route path="/home" element={<Home user={user} setUser={setUser} setIsAuth={setIsAuth} name={name} />} />
+                    <Route path="/home" element={<Home user={user} setUser={setUser} setIsAuth={setIsAuth} />} />
                 ) : (
                     <Fragment>
                         <Route path="/" element={<SignIn setUser={setUser} setIsAuth={setIsAuth} />} />
-                        <Route path="/signup" element={<SignUp setUser={setUser} setIsAuth={setIsAuth} name={name} setName={setName} />} />
+                        <Route path="/signup" element={<SignUp setUser={setUser} setIsAuth={setIsAuth} />} />
                     </Fragment>
                 )}
             </Routes>

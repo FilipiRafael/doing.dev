@@ -33,3 +33,13 @@
     text-decoration: none;
     margin-left: 0.5rem;
 }
+
+.signin__alert {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    top: 80%;
+    z-index:10;
+}

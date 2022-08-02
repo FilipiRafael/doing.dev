@@ -5,7 +5,7 @@ import { Avatar, CircularProgress } from '@mui/material';
 import AvatarsModal from '../AvatarsModal';
 import { useState, useEffect } from 'react';
 
-const SideBar = ({ user, name, darkTheme, toggleTheme }) => {
+const SideBar = ({ user, darkTheme, toggleTheme }) => {
 
     const [openAvatarsModal, setOpenAvatarsModal] = useState(false);
     const [urlAvatar, setUrlAvatar] = useState('/images/avatars/avatar1.png');
@@ -54,7 +54,7 @@ const SideBar = ({ user, name, darkTheme, toggleTheme }) => {
                 saveAvatarToLocalStorage={saveAvatarToLocalStorage}
             />
             {user.displayName ? <h2>{user.displayName}</h2> :
-            <h2>{name}</h2>}
+            <h2>Good Person</h2>}
             <div className="theme">
                 <span>Light</span>
                 <SwitchButtonIOS className="sidebar__switchbutton" checked={darkTheme} onClick={toggleTheme} />

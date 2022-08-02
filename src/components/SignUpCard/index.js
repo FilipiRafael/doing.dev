@@ -9,7 +9,7 @@ import { auth } from '../../services/firebase';
 import { Alert, AlertTitle } from '@mui/material';
 import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const SignUpCard = ({ setUser, setIsAuth, name, setName }) => {
+const SignUpCard = ({ setUser, setIsAuth }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
@@ -40,44 +40,40 @@ const SignUpCard = ({ setUser, setIsAuth, name, setName }) => {
         .catch((err) => console.error(err));
     }
 
-    function handleSignIn() {
+    function handleSignUp() {
         if (!email || !password) {
             setError(true);
             return setErrorMessage('E-mail inválido.');
         }
         setIsLoading(true);
-        createUserWithEmailAndPassword(auth, email, password, name)
-        .then((result) => {
-            setUser(result.user);
-            setIsAuth(true);
-            navigate('/home');
-        })
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => handleUser(result.user))
         .catch((err) => {
             console.error(err.code);
             setIsLoading(false);
 
-            if (error.code === 'auth/invalid-email') {
+            if (err.code === 'auth/invalid-email') {
                 setError(true);
-                setErrorMessage('E-mail inválido.');
+                return setErrorMessage('E-mail inválido.');
             }
 
-            if (error.code === 'auth/user-not-found') {
+            if (err.code === 'auth/user-not-found') {
                 setError(true);
-                setErrorMessage('E-mail ou senha inválido.');
+                return setErrorMessage('E-mail ou senha inválido.');
             }
 
-            if (error.code === 'auth/wrong-password') {
+            if (err.code === 'auth/wrong-password') {
                 setError(true);
-                setErrorMessage('E-mail ou senha inválido.');
+                return setErrorMessage('E-mail ou senha inválido.');
             }
 
-            if (error.code === 'auth/account-exists-with-different-credential') {
+            if (err.code === 'auth/account-exists-with-different-credential') {
                 setError(true);
-                setErrorMessage('Conta existente em outro provedor.');
+                return setErrorMessage('Conta existente em outro provedor.');
             }
 
             setError(true);
-            setErrorMessage('Não foi possível acessar.');
+            return setErrorMessage('Não foi possível acessar.');
     });
     }
 
@@ -85,10 +81,9 @@ const SignUpCard = ({ setUser, setIsAuth, name, setName }) => {
         <article className="signup__card">
             <h3>Crie Sua Conta</h3>
             <h4>Preencha os campos para criar sua conta.</h4>
-            <Input label="Primeiro Nome" placeholder="Digite o seu primeiro nome" type="text" setInput={setName} />
             <Input label="E-mail" placeholder="Digite o seu e-mail" type="email" setInput={setEmail} />
             <Input label="Senha" placeholder="Digite sua senha" type="password" setInput={setPassword} />
-            <Button title="Criar Conta" onClick={handleSignIn} isLoading={isLoading} />
+            <Button title="Criar Conta" onClick={handleSignUp} isLoading={isLoading} />
             <ButtonGoogleConnect title="Registrar-se com Google" onClick={handleGoogleSignIn} />
             <ButtonGithubConnect title="Registrar-se com Github" onClick={handleGithubSignIn} />
             <h5>Já tem uma conta? 
