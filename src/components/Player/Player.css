@@ -1,0 +1,15 @@
+.music__player {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    margin: auto;
+    width: 150px;
+}
+
+.music__player svg {
+    color: var(--color-music-player);
+    font-size: 3rem;
+    cursor: pointer;
+}

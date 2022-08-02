@@ -7,6 +7,7 @@ import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SideBar from '../../components/SideBar';
+import Player from '../../components/Player';
 import { auth, db } from '../../services/firebase';
 import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import 'animate.css';
@@ -153,6 +154,7 @@ const Home = ({ user, setUser, setIsAuth }) => {
 
     return (
         <section className="home__section">
+            <Player />
             {sideBar && <SideBar user={user} darkTheme={darkTheme} toggleTheme={toggleTheme} />}
             <header>
                 <nav>
