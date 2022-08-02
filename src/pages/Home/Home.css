@@ -263,3 +263,11 @@
     background-color: transparent;
     color: var(--text-color-todolist);
 }
+
+.home__curcularProgress {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

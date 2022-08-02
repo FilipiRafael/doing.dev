@@ -144,7 +144,7 @@ const SignInCard = ({ setUser, setIsAuth }) => {
                 </Link>
             </h5>
             {error && <Alert className='signin__alert' severity='error'>
-                <AlertTitle>Criar conta</AlertTitle>
+                <AlertTitle>Acessar conta</AlertTitle>
                 {errorMessage}
             </Alert>}
         </article>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useEffect, useState } from 'react';
 import './Home.css';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -6,17 +7,28 @@ import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SideBar from '../../components/SideBar';
-import { auth } from '../../services/firebase';
+import { auth, db } from '../../services/firebase';
+import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import 'animate.css';
 import { useNavigate } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
 
 const Home = ({ user, setUser, setIsAuth }) => {
 
+    const [isLoading, setIsLoading] = useState(false);
     const [tasks, setTasks] = useState([]);
     const [newItem, setNewItem] = useState(false);
     const [sideBar, setSideBar] = useState(false);
     const [darkTheme, setDarkTheme] = useState(false);
     const navigate = useNavigate();
+    const taskCollectionRef = collection(db, `tasks${user.uid}`);
+
+    async function getTasksFromFirestore() {
+        setIsLoading(true);
+        const data = await getDocs(taskCollectionRef);
+        setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setIsLoading(false);
+    }
 
     function handleSignOut() {
         auth.signOut();
@@ -29,17 +41,52 @@ const Home = ({ user, setUser, setIsAuth }) => {
         setSideBar(!sideBar);
     }
 
-    function handleKeyUp(e) {
+    async function handleKeyUp(e) {
         if (e.key === 'Enter') {
             const newArrayItems = [...tasks];
             newArrayItems.push({
-                id: `${e.target.value}/${tasks.length}`,
                 description: e.target.value,
                 done: false
             });
+
+            await addDoc(taskCollectionRef, {
+                description: e.target.value,
+                done: false,
+            });
             setTasks(newArrayItems);
-            setNewItem(false);
+            setNewItem(false)
+            getTasksFromFirestore();
         }
+    }
+
+    async function deleteTask(id) {
+        const taskDoc = doc(db, `tasks${user.uid}`, id);
+        await deleteDoc(taskDoc);
+        getTasksFromFirestore();
+    }
+
+    async function updateTaskForTrue(id, index) {
+        const taskDoc = doc(db, `tasks${user.uid}`, id);
+        await updateDoc(taskDoc, {
+            done: true
+        })
+        .then(() => {
+            const newTasksArray = [...tasks];
+            newTasksArray[index].done = true;
+            setTasks(newTasksArray);
+        });
+    }
+
+    async function updateTaskForFalse(id, index) {
+        const taskDoc = doc(db, `tasks${user.uid}`, id);
+        await updateDoc(taskDoc, {
+            done: false
+        })
+        .then(() => {
+            const newTasksArray = [...tasks];
+            newTasksArray[index].done = false;
+            setTasks(newTasksArray);
+        });
     }
 
     const rootElement = document.documentElement;
@@ -101,7 +148,8 @@ const Home = ({ user, setUser, setIsAuth }) => {
 
     useEffect(() => {
         getThemeFromLocalStorage();
-    });
+        getTasksFromFirestore();
+    }, []);
 
     return (
         <section className="home__section">
@@ -129,7 +177,10 @@ const Home = ({ user, setUser, setIsAuth }) => {
                     </div>
                 )}
                 <div className="home__content">
-                    <div className="home__todolist">
+                    {isLoading ? (
+                        <CircularProgress className="home__curcularProgress" sx={{ color: '#7C7C8A' }} />
+                    ) : (
+                        <div className="home__todolist">
                         {newItem && tasks.length === 0 && (
                             <div className="home__newtask-emptylist">
                                 <input autoFocus type="text" placeholder="Digite a nova tarefa..." onKeyUp={handleKeyUp} />
@@ -142,20 +193,12 @@ const Home = ({ user, setUser, setIsAuth }) => {
                                     <div key={`${task.description}/${index}`}>
                                         {task.done ?
                                             <Fragment>
-                                                <input type="checkbox" checked={task.done} onChange={() => {
-                                                    const newTasksArray = [...tasks];
-                                                    newTasksArray[index].done = false;
-                                                    setTasks(newTasksArray);
-                                                }} />
+                                                <input type="checkbox" checked={task.done} onChange={() => updateTaskForFalse(tasks[index].id, index)} />
                                                 <span className="checkmark"></span>
                                                 <span className='home__tasks-line-through'>{task.description}</span>
                                             </Fragment> :
                                             <Fragment>
-                                                <input type="checkbox" checked={task.done} onChange={() => {
-                                                    const newTasksArray = [...tasks];
-                                                    newTasksArray[index].done = true;
-                                                    setTasks(newTasksArray);
-                                                }} />
+                                                <input type="checkbox" checked={task.done} onChange={() => updateTaskForTrue(tasks[index].id, index)} />
                                                 <span className="checkmark"></span>
                                                 <span>{task.description}</span>
                                             </Fragment>
@@ -163,6 +206,8 @@ const Home = ({ user, setUser, setIsAuth }) => {
                                         <DeleteIcon
                                             className="home__tasks-deleteicon"
                                             onClick={() => {
+                                                deleteTask(tasks[index].id)
+
                                                 const newTasksArray = [...tasks];
                                                 newTasksArray.splice(index, 1);
                                                 setTasks(newTasksArray);
@@ -202,6 +247,7 @@ const Home = ({ user, setUser, setIsAuth }) => {
                             </button>
                         )}                        
                     </div>
+                    )}
                 </div>
             </main>
         </section>
