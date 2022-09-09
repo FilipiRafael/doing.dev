@@ -36,3 +36,21 @@ Conforme vou adquirindo novas habilidades, irei atualizando o projeto em novas v
 <img src="./public/screenshots/image4.png" alt="App Screenshot 1">
 <img src="./public/screenshots/image5.png" alt="App Screenshot 1">
 <img src="./public/screenshots/image6.png" alt="App Screenshot 1">
+
+# Doing.dev
+
+O projeto tem o objetivo final de ser um todoist mininalista com Lofi Music Player.
+
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Doing.dev**
+| :label: Tecnologias | Javascript, ReactJS, CSS, HTML, Firebase, Vercel (tecnologias utilizadas)
+| :rocket: URL         | https://doing-dev.vercel.app/
+| :fire: Desafio     | https://github.com/FilipiRafael/doing.dev
+
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
+![](https://raw.githubusercontent.com/FilipiRafael/doing.dev/main/public/screenshots/image5.png#vitrinedev)
+
+## Detalhes do projeto
+
+A ideia do projeto foi para aplicar, práticar e melhorar minhas habilidades técnicas em desenvolvimento web com React, Firebase e mais tecnologias que envolvendo a concepção, desenvolvimento e entrega do produto.
